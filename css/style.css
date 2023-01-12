@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+80s+Fade&display=swap');
+
+/***********************/
+/******* GENERAL *******/
+/***********************/
+:root {
+  --button-color: #ffc244;
+  --text-color: #191718;
+  --border-radius: 20px;
+  --title-shadow:
+    -3px -3px 0 #db2929,
+    3px -3px 0 #db5b29,
+    -3px 3px 0 #db7929,
+    3px 3px 0 #dba329,
+    5px 5px 0 var(--text-color),
+    6px 6px 0 var(--text-color),
+    7px 7px 0 var(--text-color),
+    8px 8px 0 var(--text-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-image: url(/img/banner/banner.jpg);
+  background-size: cover;
+  color: var(--text-color);
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto 5rem;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+header,
+main,
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**********************/
+/******* HEADER *******/
+/**********************/
+
+header {
+  grid-area: header;
+  flex-direction: column;
+  padding: 1rem;
+  /* background-image: url(/img/banner/banner3.jpg); */
+}
+
+header img {
+  width: 9rem;
+  margin-left: 30px;
+}
+
+header h1 {
+  font-size: 4.5rem;
+  /* font-family: 'Rubik 80s Fade'; */
+  text-shadow: var(--title-shadow);
+}
+
+/********************/
+/******* MAIN *******/
+/********************/
+main {
+  grid-area: main;
+  padding-bottom: 2rem;
+}
+
+section {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+#line {
+  width: 100%;
+  height: 20px;
+  border-radius: 0 8px 8px 0;
+  border: 2px solid #383838;
+  background-color: #ff7b00;
+  background-size: auto 100%;
+  animation: drop 15s linear;
+  animation-fill-mode: forwards;
+  z-index: 0;
+}
+
+#line::before {
+  content: "15";
+}
+
+/***** article "questions cards" *****/
+article {
+  display: grid;
+  gap: 0.5rem;
+  border-radius: var(--border-radius);
+  background-color: #0e4ed87a;
+}
+
+
+
+@keyframes drop {
+  to {
+    width: 0px;
+  }
+}
+
+article header {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  background-color: #0066ff;
+}
+
+article header h2 {
+  grid-column: 1 / 2;
+  text-align: center;
+  font-size: 1.3em;
+  padding: 1rem;
+}
+
+.scoreContainer {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textScore {
+  position: absolute;
+  color: white;
+  margin-top: 15px;
+
+}
+
+.imgScore {
+  width: 8rem;
+  padding-right: 1rem;
+}
+
+article main {
+  display: grid;
+  padding: 0.7rem;
+}
+
+.questions {
+  display: grid;
+  gap: 1rem;
+  padding: 0 1rem;
+  border-radius: var(--border-radius);
+}
+
+article .questions button {
+  padding: 1.3rem 1rem;
+  font-weight: 800;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: #5498ff;
+  box-shadow: 9px 9px 16px -1px #545454;
+}
+
+article .questions button:hover {
+  background-color: #ff972d;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+figure img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 7px 7px 9px -1px #545454;
+}
+
+/**********************/
+/******* FOOTER *******/
+/**********************/
+footer {
+  grid-area: footer;
+  font-weight: 600;
+}
+
+
+/*********************/
+/******* MEDIA *******/
+/*********************/
+@media (min-width: 425px) {
+  header h1 {
+    font-size: 6rem;
+  }
+
+  article header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  article header h2 {
+    padding: 1rem 3rem;
+  }
+
+  .questions {
+    padding: 1rem 4rem;
+  }
+
+  figure {
+    padding: 1rem 4rem;
+  }
+
+
+}
+
+@media (min-width: 775px) {
+  header {
+    flex-direction: row;
+  }
+
+  header h1 {
+    font-size: 9rem;
+    margin-top: 30px;
+  }
+
+  section {
+    gap: 4rem;
+  }
+
+  .textScore {
+    margin-top: 25px;
+  }
+
+
+  .imgScore {
+    width: 12rem;
+  }
+
+  article {
+    max-width: 900px;
+  }
+
+  article main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  article header h2 {
+    font-size: 2.5rem;
+  }
+
+  .questions {
+    padding: 2rem;
+  }
+
+  .questions button {
+    min-width: 250px;
+    font-size: 1.3rem;
+
+  }
+
+}
